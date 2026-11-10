@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Explore Movies | StreamDB</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+```
+<!-- NAVBAR -->
+<nav id="nav"></nav>
+
+<!-- MOVIE HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="tag">YOUR ENTERTAINMENT WORLD</span>
+
+        <h1>Discover Your<br>Next Favourite Movie.</h1>
+
+        <p>
+            Explore amazing movies, discover new genres
+            and create your own watchlist.
+        </p>
+
+        <a href="#movie-section" class="btn">
+            Explore Collection ↓
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- MOVIES SECTION -->
+<section class="container" id="movie-section">
+
+    <h2 class="sec">🎬 Explore All Movies</h2>
+
+    <p style="color:#aaa; margin-bottom:25px;">
+        Find something amazing to watch today.
+    </p>
+
+
+    <!-- SEARCH -->
+    <div class="row">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search movies or genres..."
+            style="width:350px; max-width:100%;"
+            onkeyup="loadMovies()"
+        >
+
+        <button onclick="loadMovies()">
+            Search
+        </button>
+
+    </div>
+
+
+    <!-- ADMIN PANEL -->
+    <div id="admin"
+         style="display:none; margin-top:35px;">
+
+        <h2 class="sec">⚙️ Admin Dashboard</h2>
+
+        <h3 style="margin-bottom:15px;">
+            Add New Movie
+        </h3>
+
+        <div class="row">
+
+            <input id="t" placeholder="Movie Title">
+
+            <input id="g" placeholder="Genre">
+
+            <input id="y" type="number"
+                   placeholder="Release Year">
+
+            <button onclick="addMovie()">
+                + Add Movie
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MOVIE COLLECTION -->
+    <div style="margin-top:45px;">
+
+        <h2 class="sec">🔥 Popular Collection</h2>
+
+        <div class="grid" id="grid">
+
+            <p>Loading movies...</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <h2>STREAM<span>DB</span></h2>
+
+    <p>Discover. Watch. Enjoy.</p>
+
+    <p class="copyright">
+        © 2026 StreamDB. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<script>
+
+    loadNav().then(() => {
+
+        if (ME && ME.role === "admin") {
+            document.getElementById("admin").style.display = "block";
+        }
+
+        loadMovies();
+
+    });
+
+</script>
+```
+
+</body>
+</html>

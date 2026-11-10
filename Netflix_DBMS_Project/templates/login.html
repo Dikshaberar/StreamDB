@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Login | StreamDB</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body class="auth-page">
+
+```
+<!-- NAVBAR -->
+<nav id="nav"></nav>
+
+<!-- LOGIN BACKGROUND -->
+<div class="auth-background">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            STREAM<span>DB</span>
+        </div>
+
+        <h1>Welcome Back!</h1>
+
+        <p class="auth-subtitle">
+            Sign in to continue your entertainment journey.
+        </p>
+
+        <div class="msg" id="msg"></div>
+
+        <form onsubmit="event.preventDefault(); doLogin();">
+
+            <div class="input-group">
+                <label>Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <div class="show-password">
+                <input type="checkbox" id="showPass"
+                    onchange="
+                    document.getElementById('password').type =
+                    this.checked ? 'text' : 'password';
+                    ">
+
+                <label for="showPass">Show Password</label>
+            </div>
+
+            <button type="submit" class="auth-btn">
+                SIGN IN →
+            </button>
+
+        </form>
+
+        <div class="auth-divider">
+            <span>OR</span>
+        </div>
+
+        <p class="auth-footer">
+            New to StreamDB?
+            <a href="/register">Create an account</a>
+        </p>
+
+        <p class="auth-small">
+            Enjoy movies. Discover stories. Experience entertainment.
+        </p>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<script>
+    loadNav();
+</script>
+```
+
+</body>
+</html>

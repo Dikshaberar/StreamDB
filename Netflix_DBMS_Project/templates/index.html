@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>StreamDB | Unlimited Entertainment</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Navigation -->
+<nav id="nav"></nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+
+        <span class="tag">WELCOME TO STREAMDB</span>
+
+        <h1>Unlimited Movies.<br>
+            Unlimited Entertainment.</h1>
+
+        <p>
+            Discover your favourite movies, explore new stories
+            and enjoy entertainment anytime, anywhere.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="/movies" class="btn">▶ Explore Movies</a>
+            <a href="/register" class="btn secondary-btn">Join Now</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="container">
+
+    <h2 class="sec">Why Choose StreamDB?</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🎬 Huge Collection</h3>
+            <p>Explore movies from different genres and categories.</p>
+        </div>
+
+        <div class="card">
+            <h3>❤️ My Watchlist</h3>
+            <p>Save your favourite movies and watch them later.</p>
+        </div>
+
+        <div class="card">
+            <h3>📊 Watch History</h3>
+            <p>Keep track of your previously watched movies.</p>
+        </div>
+
+        <div class="card">
+            <h3>👤 Personal Account</h3>
+            <p>Create your account and enjoy a personalized experience.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Most Watched Section -->
+<section class="container">
+
+    <h2 class="sec">🔥 Most Watched Movies</h2>
+
+    <div class="table-wrapper">
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Movie Title</th>
+                    <th>Total Views</th>
+                </tr>
+            </thead>
+
+            <tbody id="top">
+                <tr>
+                    <td colspan="2">Loading movies...</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <div class="browse-section">
+        <a href="/movies" class="btn">Browse All Movies →</a>
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <h2>STREAM<span>DB</span></h2>
+
+    <p>Your world of entertainment starts here.</p>
+
+    <p class="copyright">
+        © 2026 StreamDB. All Rights Reserved.
+    </p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<script>
+    loadNav();
+    loadTop();
+</script>
+```
+
+</body>
+</html>

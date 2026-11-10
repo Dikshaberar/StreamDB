@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>My Dashboard | StreamDB</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+```
+<!-- NAVIGATION -->
+<nav id="nav"></nav>
+
+<!-- DASHBOARD HERO -->
+<section class="dashboard-hero">
+
+    <div>
+        <span class="tag">YOUR PERSONAL SPACE</span>
+
+        <h1>Welcome Back, <span id="userName">User</span> 👋</h1>
+
+        <p>
+            Your entertainment journey continues here.
+            Explore your favourite movies and discover new stories.
+        </p>
+    </div>
+
+    <div class="profile-circle">
+        👤
+    </div>
+
+</section>
+
+
+<main class="dashboard-container">
+
+    <!-- PROFILE -->
+    <section class="profile-section">
+
+        <h2>👤 My Profile</h2>
+
+        <div class="profile-info" id="info">
+            Loading profile...
+        </div>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon">🎬</div>
+            <h3 id="historyCount">0</h3>
+            <p>Movies Watched</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">❤️</div>
+            <h3 id="watchlistCount">0</h3>
+            <p>My Watchlist</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <h3>StreamDB</h3>
+            <p>Entertainment Hub</p>
+        </div>
+
+    </section>
+
+
+    <!-- WATCHLIST -->
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <h2>❤️ My Watchlist</h2>
+
+            <a href="/movies">Explore Movies →</a>
+
+        </div>
+
+        <div class="grid" id="list">
+
+            <p>Loading watchlist...</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- WATCH HISTORY -->
+    <section class="dashboard-section">
+
+        <div class="section-heading">
+
+            <h2>🕒 Recently Watched</h2>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Movie</th>
+                        <th>Genre</th>
+                        <th>Date</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+
+                <tbody id="hist">
+
+                    <tr>
+                        <td colspan="4">Loading history...</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUBSCRIPTION -->
+    <section class="subscription-card">
+
+        <div>
+
+            <span class="tag">STREAMDB MEMBERSHIP</span>
+
+            <h2>Enjoy Your Entertainment Journey</h2>
+
+            <p>
+                Manage your subscription and explore
+                your entertainment experience.
+            </p>
+
+        </div>
+
+        <div class="subscription-action">
+
+            <select id="plan">
+                <option value="Basic">Basic Plan</option>
+                <option value="Standard">Standard Plan</option>
+                <option value="Premium">Premium Plan</option>
+            </select>
+
+            <button onclick="subscribe()">
+                Update Plan
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- BROWSE -->
+    <section class="browse-banner">
+
+        <h2>Looking for something to watch?</h2>
+
+        <p>Discover amazing movies from our collection.</p>
+
+        <a href="/movies" class="btn">
+            Explore Movies →
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <h2>STREAM<span>DB</span></h2>
+
+    <p>Your world of entertainment starts here.</p>
+
+    <p class="copyright">
+        © 2026 StreamDB. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<script>
+
+    async function initializeDashboard() {
+
+        await loadNav();
+
+        if (!ME) {
+            location.href = "/login";
+            return;
+        }
+
+        document.getElementById("userName").innerText = ME.name;
+
+        await loadDashboard();
+
+    }
+
+    initializeDashboard();
+
+</script>
+```
+
+</body>
+</html>
